@@ -21,7 +21,6 @@ public class CloudEnemy : MonoBehaviour
     void Update()
     {
         _distance = Vector2.Distance((Vector2)_player.position, (Vector2)this.transform.position);
-        Debug.Log(_distance);
 
         if (_distance < 9)
         {

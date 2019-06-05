@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D _rb;
     [SerializeField] private float _speed, _jumpForce, _circleSphereRay;
     [SerializeField] private string _direction;
-    public bool isJumping, isMoving, isGrounded;
+    public bool isJumping, isMoving, isGrounded, isDead;
     private float _movement, _movX;
     [SerializeField] private LayerMask _layerMaskGround, _layerMaskToEnemies;
     [SerializeField] private Transform _playerBottom;
@@ -16,10 +16,16 @@ public class Player : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private PlayerAnimations _playerAnimator;
     private float _jumpSpeed;
-
-
+    public int HP;
+    private UIManager _uiManager;
+    [SerializeField] private float _invencibilityCurrentTime, _invencibilityTime;
+    private GameManager _gameManager;
+    private bool _invencible;
+    [SerializeField] private ParticleSystem _particle;
     private void Awake()
     {
+        _uiManager = FindObjectOfType<UIManager>().GetComponent<UIManager>();
+        _gameManager = FindObjectOfType<GameManager>().GetComponent<GameManager>();
         _rb = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _playerAnimator = GetComponent<PlayerAnimations>();
@@ -30,8 +36,11 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-        Move();
-        AnimationCheck();
+        if (!isDead)
+        {
+            Move();
+            AnimationCheck();
+        }
     }
     private void FixedUpdate()
     {
@@ -40,6 +49,7 @@ public class Player : MonoBehaviour
             _rb.velocity = new Vector2(_movement, this._rb.velocity.y);
         }
         CheckGround();
+        _invencibilityCurrentTime = _invencibilityCurrentTime - Time.deltaTime;
     }
 
     private void Move()
@@ -86,13 +96,15 @@ public class Player : MonoBehaviour
         {
             if (_hit.collider.CompareTag("Enemy"))
             {
-                Destroy(_hit.collider.gameObject);
+                Enemy enemy = _hit.collider.GetComponent<Enemy>();
+                enemy.TakeDamage(1);
                 _rb.velocity = new Vector2(this._rb.velocity.x, 5f);
+                _particle.Play();
             }
             else if (_hit.collider.CompareTag("MushroomJump"))
             {
                 _rb.velocity = new Vector2(this._rb.velocity.x, 10f);
-                Debug.Log("mushroom");
+                _particle.Play();
             }
         }
     }
@@ -105,7 +117,7 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("take damage");
+            TakeDamage();
         }
     }
     private void AnimationCheck()
@@ -113,5 +125,54 @@ public class Player : MonoBehaviour
         _playerAnimator.isMoving(isMoving);
         _playerAnimator.isJumping(isJumping);
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.name == "cloudAttack")
+        {
+            if (_invencibilityCurrentTime <= 0)
+            {
+                TakeDamage();
+            }
+        }
+        else if (other.gameObject.name == "DeadWall")
+        {
+            isDead = true;
+            StartCoroutine(RestartLevel());
+        }
+    }
+    private void TakeDamage()
+    {
+        this.HP--;
+        _invencibilityCurrentTime = _invencibilityTime;
+        _uiManager.SetSpriteHP(HP);
 
+        if (HP <= 0)
+        {
+            _playerAnimator.isDead();
+            isDead = true;
+            StartCoroutine(RestartLevel());
+        }
+        else
+        {
+            StartCoroutine(DamageRoutine());
+        }
+    }
+    private IEnumerator RestartLevel()
+    {
+        yield return new WaitForSecondsRealtime(2.25f);
+        _gameManager.RestartScene("Platform");
+    }
+    private IEnumerator DamageRoutine()
+    {
+        _invencible = true;
+        _spriteRenderer.color = new Color(this._spriteRenderer.color.r, this._spriteRenderer.color.g, this._spriteRenderer.color.b, 0);
+        yield return new WaitForEndOfFrame();
+        _spriteRenderer.color = new Color(this._spriteRenderer.color.r, this._spriteRenderer.color.g, this._spriteRenderer.color.b, 1);
+        yield return new WaitForEndOfFrame();
+        _spriteRenderer.color = new Color(this._spriteRenderer.color.r, this._spriteRenderer.color.g, this._spriteRenderer.color.b, 0);
+        yield return new WaitForEndOfFrame();
+        _spriteRenderer.color = new Color(this._spriteRenderer.color.r, this._spriteRenderer.color.g, this._spriteRenderer.color.b, 1);
+        yield return new WaitForSecondsRealtime(1f);
+        _invencible = false;
+    }
 }
