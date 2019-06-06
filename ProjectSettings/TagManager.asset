@@ -8,6 +8,7 @@ TagManager:
   - MushroomJump
   - ChangeDirectionWall
   - DeadWall
+  - Upgrade
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Enemy
   - MushroomJump
   - Wall
-  - 
+  - Upgrade
   - 
   - 
   - 

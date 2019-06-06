@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ public class ShooterPlayer : MonoBehaviour
     [SerializeField] private float _speed;
     private bool _isMoving;
     private ShooterPlayerAnimations _shooterPlayerAnim;
+    [SerializeField] private GameObject _laser;
+    [SerializeField] private int _upgrade;
     private void Awake()
     {
         _shooterPlayerAnim = GetComponent<ShooterPlayerAnimations>();
@@ -15,7 +18,32 @@ public class ShooterPlayer : MonoBehaviour
     void Update()
     {
         MoveShip();
+        AttackShip();
     }
+
+    private void AttackShip()
+    {
+        if (Input.GetButton("Jump"))
+        {
+            if (_upgrade == 0)
+            {
+                //shoot0
+            }
+            else if (_upgrade == 1)
+            {
+                //
+            }
+            else if (_upgrade == 2)
+            {
+                //
+            }
+            else
+            {
+                //
+            }
+        }
+    }
+
     public void MoveShip()
     {
         float movHor = Input.GetAxis("Horizontal");
@@ -52,5 +80,14 @@ public class ShooterPlayer : MonoBehaviour
             this.transform.position = new Vector2(this.transform.position.x, -4.764451f);
         }
     }
-
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Upgrade"))
+        {
+            if (_upgrade < 4)
+            {
+                _upgrade++;
+            }
+        }
+    }
 }
