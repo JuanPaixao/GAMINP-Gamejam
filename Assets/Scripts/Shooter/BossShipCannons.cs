@@ -10,6 +10,15 @@ public class BossShipCannons : MonoBehaviour
     public bool destroyed;
     [SerializeField] private float _shootCooldown;
     [SerializeField] private int _id; //if One, can be destroyed;
+    [SerializeField] private GameObject _explosion;
+    [SerializeField] private GameObject _bossObject;
+    [SerializeField] private GameManager _gameManager;
+
+     private void Awake()
+    {
+        _gameManager = FindObjectOfType<GameManager>();
+    }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -31,6 +40,11 @@ public class BossShipCannons : MonoBehaviour
             if (other.gameObject.CompareTag("Shoot"))
             {
                 this.hpCannon--;
+
+                if (this.hpCannon <= 0)
+                {
+                    Dead();
+                }
             }
         }
     }
@@ -46,5 +60,10 @@ public class BossShipCannons : MonoBehaviour
         {
             Instantiate(_bossShot, this.transform.position, Quaternion.identity); //placeholder to memory stack later
         }
+    }
+    private void Dead()
+    {
+        _gameManager.DeactiveBossShip(this.transform);
+        _bossObject.SetActive(false);
     }
 }

@@ -11,10 +11,7 @@ public class BossShooter : MonoBehaviour
     [SerializeField] private Animator _cameraAnimator;
     [SerializeField] private ShooterPlayer _player;
     [SerializeField] private int _HP = 30;
-    private void Update()
-    {
-
-    }
+  
     public void SetBossCamera()
     {
         _cameraAnimator.SetTrigger("Boss");

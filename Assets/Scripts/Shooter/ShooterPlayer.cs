@@ -18,6 +18,8 @@ public class ShooterPlayer : MonoBehaviour
     public float limitY, limitX;
     public bool imDead;
     public GameObject explosion;
+    [SerializeField] private SpriteRenderer _engineSprite;
+    private GameManager _gameManager;
 
 
     private void Awake()
@@ -25,7 +27,7 @@ public class ShooterPlayer : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
         _shooterPlayerAnim = GetComponent<ShooterPlayerAnimations>();
-
+        _gameManager = FindObjectOfType<GameManager>();
     }
 
     void Update()
@@ -40,7 +42,9 @@ public class ShooterPlayer : MonoBehaviour
         else
         {
             this._spriteRenderer.color = new Color(this._spriteRenderer.color.r, this._spriteRenderer.color.g, this._spriteRenderer.color.b, 0);
+            this._engineSprite.color = new Color(this._engineSprite.color.r, this._engineSprite.color.g, this._engineSprite.color.b, 0);
             explosion.SetActive(true);
+            StartCoroutine(DeadRoutine());
         }
     }
 
@@ -167,5 +171,12 @@ public class ShooterPlayer : MonoBehaviour
         _spriteRenderer.color = new Color(this._spriteRenderer.color.r, this._spriteRenderer.color.g, this._spriteRenderer.color.b, 0);
         yield return new WaitForEndOfFrame();
         _spriteRenderer.color = new Color(this._spriteRenderer.color.r, this._spriteRenderer.color.g, this._spriteRenderer.color.b, 1);
+    }
+    private IEnumerator DeadRoutine()
+    {
+        yield return new WaitForSeconds(0.45f);
+        this.gameObject.SetActive(false);
+        
+        _gameManager.RestartScene("Shooter");
     }
 }
