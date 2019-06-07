@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4515020270160118327}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.51, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4515020270273699757}
@@ -100,7 +100,7 @@ Animator:
   m_GameObject: {fileID: 4515020270160118327}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2bea9e955c9b9ed449c7e2a63145fe78, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -122,6 +122,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
+  _laser: {fileID: 0}
+  _upgrade: 0
+  _cannonsPosition: []
+  _cooldownShoot: 0
+  _actualCooldownShoot: 0
 --- !u!114 &4515020270160118321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animatorEngines: {fileID: 4515020271805608994}
+  _animatorPlayer: {fileID: 0}
 --- !u!70 &4515020270160118322
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

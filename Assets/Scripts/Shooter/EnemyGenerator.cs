@@ -8,16 +8,24 @@ public class EnemyGenerator : MonoBehaviour
     [SerializeField] private float _time;
     [SerializeField] private Rect _area;
     [SerializeField] private EnemiesBackup _enemiesBackup;
+    private GameManager _gameManager;
+    private void Awake()
+    {
+        _gameManager = FindObjectOfType<GameManager>().GetComponent<GameManager>();
+    }
     private void Start()
     {
         InvokeRepeating("Instantiate", 0, this._time);
     }
     private void Instantiate()
     {
-        if (this._enemiesBackup.HasEnemy())
+        if (_gameManager.shooterScore <= 60)
         {
-            GameObject enemy = this._enemiesBackup.UnstackEnemy();
-            this.SetEnemyPosition(enemy);
+            if (this._enemiesBackup.HasEnemy())
+            {
+                GameObject enemy = this._enemiesBackup.UnstackEnemy();
+                this.SetEnemyPosition(enemy);
+            }
         }
     }
 

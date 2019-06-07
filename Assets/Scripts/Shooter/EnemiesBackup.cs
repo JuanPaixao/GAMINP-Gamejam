@@ -28,7 +28,7 @@ public class EnemiesBackup : MonoBehaviour
     {
         for (int i = 0; i < this._quantity; i++)
         {
-            int randomNumber = UnityEngine.Random.Range(0, 2);
+            int randomNumber = UnityEngine.Random.Range(0, 4);
             GameObject enemy = GameObject.Instantiate(_enemies[randomNumber], this.transform);
             EnemiesBackupObject backupEnemy = enemy.GetComponent<EnemiesBackupObject>();
             backupEnemy.SetBackup(this);
@@ -49,7 +49,6 @@ public class EnemiesBackup : MonoBehaviour
     {
         enemy.SetActive(false);
         this._enemiesStack.Push(enemy);
-        Debug.Log("Stacked " + enemy);
     }
 
     public bool HasEnemy()

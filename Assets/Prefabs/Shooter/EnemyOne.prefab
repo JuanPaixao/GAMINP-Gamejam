@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 7896484819341069560}
   - component: {fileID: 552830901}
   - component: {fileID: 3839902137807908626}
-  m_Layer: 0
+  - component: {fileID: 4425157471040247363}
+  - component: {fileID: -596330178177441181}
+  m_Layer: 10
   m_Name: EnemyOne
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 657131378490567522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9452689, y: -2.749521, z: 12.327149}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8270352145687401177}
@@ -62,8 +64,48 @@ MonoBehaviour:
   _speed: 0.75
   _amplitude: 1
   enemyType: 0
-  _laser: {fileID: 1578200848075348329, guid: 09ca32062d6c8bb4e9bc5c663c23fea1, type: 3}
-  _laserCooldown: 0
+  _laser: {fileID: 1578200848075348329, guid: a5bb9b33a124a0a46a8bc88ecf9d8d4f, type: 3}
+  _laserCooldown: 1.5
+  destroyRoutine:
+  - {fileID: 7654304118743826772}
+  - {fileID: 6074315542675446817}
+--- !u!70 &4425157471040247363
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657131378490567522}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.014339212, y: -0.019118726}
+  m_Size: {x: 1.8860703, y: 0.8632482}
+  m_Direction: 1
+--- !u!50 &-596330178177441181
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657131378490567522}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &6074315542675446817
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,7 +117,7 @@ GameObject:
   - component: {fileID: 7015868726601426905}
   - component: {fileID: 5858528674692812310}
   - component: {fileID: 4227975624760841869}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: enemy1dead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +217,7 @@ GameObject:
   - component: {fileID: 8270352145687401177}
   - component: {fileID: 8458275137867413557}
   - component: {fileID: 5662218228658941675}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy_One
   m_TagString: Untagged
   m_Icon: {fileID: 0}

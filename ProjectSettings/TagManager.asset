@@ -9,6 +9,10 @@ TagManager:
   - ChangeDirectionWall
   - DeadWall
   - Upgrade
+  - Shoot
+  - Wall
+  - EnemyGenerator
+  - GameManager
   layers:
   - Default
   - TransparentFX
@@ -24,7 +28,7 @@ TagManager:
   - MushroomJump
   - Wall
   - Upgrade
-  - 
+  - Shoot
   - 
   - 
   - 

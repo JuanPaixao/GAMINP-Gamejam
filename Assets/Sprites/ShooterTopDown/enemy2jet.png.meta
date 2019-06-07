@@ -1,7 +1,19 @@
 fileFormatVersion: 2
 guid: 8fe730c3de93c5a48bc6799a6e8f5f42
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -7291839987579736724
+    second: enemy2jet_0
+  - first:
+      213: -6203187820844166004
+    second: enemy2jet_1
+  - first:
+      213: 4167161526742069747
+    second: enemy2jet_2
+  - first:
+      213: 3766573556114946308
+    second: enemy2jet_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -104,7 +116,49 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: enemy2jet_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 26
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4856eb14e319673488c1cbadae542c6d
+      internalID: -7291839987579736724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy2jet_1
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 26
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 087693aa449b02c4ca812c2d071416e0
+      internalID: -6203187820844166004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

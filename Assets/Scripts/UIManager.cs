@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] _gameObject;
+    public Text UIText;
 
 
     public void SetSpriteHP(int hp)
@@ -34,5 +36,9 @@ public class UIManager : MonoBehaviour
             _gameObject[1].SetActive(false);
             _gameObject[2].SetActive(false);
         }
+    }
+    public void SetText(string text)
+    {
+        this.UIText.text = text;
     }
 }

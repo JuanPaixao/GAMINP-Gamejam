@@ -11,17 +11,24 @@ public class EnemiesBehavior : MonoBehaviour
     public int enemyType;
     [SerializeField] private GameObject _laser;
     [SerializeField] private float _laserCooldown;
+    [SerializeField] private GameObject[] destroyRoutine;
+    private GameManager _gameManager;
 
     void Awake()
     {
+        _gameManager = FindObjectOfType<GameManager>().GetComponent<GameManager>();
         this._initialPos = this.transform.position;
     }
     private void Start()
     {
-        InvokeRepeating("Shoot", 3f, _laserCooldown);
+        if (!this.CompareTag("Upgrade"))
+        {
+            InvokeRepeating("Shoot", 1f, _laserCooldown);
+        }
     }
     void Update()
     {
+
         this.transform.Translate(0, -_speed * Time.deltaTime, 0);
         if (this.enemyType == 1)
         {
@@ -31,10 +38,21 @@ public class EnemiesBehavior : MonoBehaviour
         {
             OutOfBounds();
         }
+        if (_gameManager.shooterScore >= 60)
+        {
+            if (!this.gameObject.CompareTag("Upgrade"))
+            {
+                DestroyMe();
+            }
+        }
+
     }
     private void Shoot()
     {
-        Instantiate(_laser, this.transform.position, Quaternion.identity); //placeholder to memory stack later
+        if (_gameManager.shooterScore < 60)
+        {
+            Instantiate(_laser, this.transform.position, Quaternion.identity); //placeholder to memory stack later
+        }
     }
     private void SineMovement()
     {
@@ -42,9 +60,39 @@ public class EnemiesBehavior : MonoBehaviour
         float variation = Mathf.Sin(_angle); //period
         this.transform.position = this.transform.position + (this._amplitude * variation * Vector3.right);
     }
-    private void OutOfBounds()
+    public void OutOfBounds()
     {
-        EnemiesBackup returnMe =  GameObject.FindObjectOfType<EnemiesBackup>().GetComponent<EnemiesBackup>();
+        EnemiesBackup returnMe = GameObject.FindObjectOfType<EnemiesBackup>().GetComponent<EnemiesBackup>();
         returnMe.StackEnemy(this.gameObject);
+        if (!this.CompareTag("Upgrade"))
+        {
+            destroyRoutine[1].SetActive(false);
+            destroyRoutine[0].SetActive(true);
+        }
+    }
+    public void DestroyMe()
+    {
+        destroyRoutine[0].SetActive(false);
+        destroyRoutine[1].SetActive(true);
+        _gameManager.IncreaseScore();
+        if (_gameManager.shooterScore < 60)
+        {
+            StartCoroutine(ReturnRoutine());
+        }
+        else
+        {
+            OutOfBounds();
+        }
+    }
+
+    public void WhenCreated()
+    {
+        destroyRoutine[1].SetActive(false);
+        destroyRoutine[0].SetActive(true);
+    }
+    private IEnumerator ReturnRoutine()
+    {
+        yield return new WaitForSeconds(0.45f);
+        OutOfBounds();
     }
 }
