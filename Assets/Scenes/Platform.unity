@@ -17592,6 +17592,7 @@ MonoBehaviour:
   shooterScore: 0
   uiManager: {fileID: 0}
   boss: {fileID: 0}
+  explosion: {fileID: 0}
 --- !u!1001 &1126038191
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33506,6 +33507,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: fade
+      objectReference: {fileID: 0}
+    - target: {fileID: 3176453055712831778, guid: b47badaa548b4f3448ae9817320eba96,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3176453055712831777, guid: b47badaa548b4f3448ae9817320eba96,
         type: 3}

@@ -13,6 +13,9 @@ TagManager:
   - Wall
   - EnemyGenerator
   - GameManager
+  - Sword
+  - Box
+  - Stair
   layers:
   - Default
   - TransparentFX
@@ -29,8 +32,8 @@ TagManager:
   - Wall
   - Upgrade
   - Shoot
-  - 
-  - 
+  - Boxes
+  - Stairs
   - 
   - 
   - 

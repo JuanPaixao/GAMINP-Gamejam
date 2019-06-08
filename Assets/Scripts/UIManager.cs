@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject[] _gameObject;
     public Text UIText;
+    public Slider slider;
 
 
     public void SetSpriteHP(int hp)
@@ -40,5 +41,9 @@ public class UIManager : MonoBehaviour
     public void SetText(string text)
     {
         this.UIText.text = text;
+    }
+    public void SetHPSlider(int hp)
+    {
+        this.slider.value = hp;
     }
 }
