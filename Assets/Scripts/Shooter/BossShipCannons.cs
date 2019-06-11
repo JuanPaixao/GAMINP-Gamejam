@@ -13,25 +13,28 @@ public class BossShipCannons : MonoBehaviour
     [SerializeField] private GameObject _explosion;
     [SerializeField] private GameObject _bossObject;
     [SerializeField] private GameManager _gameManager;
-
-     private void Awake()
+    [SerializeField] private float _invencibilityCurrentTime, _invencibilityTime;
+    private void Awake()
     {
         _gameManager = FindObjectOfType<GameManager>();
     }
 
-
+    private void Update()
+    {
+        _invencibilityCurrentTime = _invencibilityCurrentTime - Time.deltaTime;
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.gameObject.name);
         if (this._id == 1)
         {
             if (other.gameObject.CompareTag("Shoot"))
             {
                 this.hpCannon--;
+
                 if (hpCannon <= 0)
                 {
-
                     animator.SetTrigger("Destroyed");
+                    destroyed=true;
                 }
             }
         }
@@ -39,7 +42,11 @@ public class BossShipCannons : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Shoot"))
             {
-                this.hpCannon--;
+                if (_invencibilityCurrentTime <= 0)
+                {
+                    this.hpCannon--; 
+                    _invencibilityCurrentTime = _invencibilityTime;
+                }
 
                 if (this.hpCannon <= 0)
                 {
@@ -64,6 +71,7 @@ public class BossShipCannons : MonoBehaviour
     private void Dead()
     {
         _gameManager.DeactiveBossShip(this.transform);
+        _gameManager.LoadSceneWithDealy();
         _bossObject.SetActive(false);
     }
 }

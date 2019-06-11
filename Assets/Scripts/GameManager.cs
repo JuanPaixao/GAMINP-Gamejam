@@ -6,36 +6,62 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public string sceneName;
-    public int shooterScore;
+    public float shooterTimeBoss;
     public UIManager uiManager;
     public GameObject boss;
     public GameObject explosion;
+    public GameObject MenuUI, Dialog;
+    private bool _started;
+    public bool withBoss;
+    private AudioSource _audioSource;
 
+    private void Start()
+    {
+        _audioSource = GetComponent<AudioSource>();
+
+        if (this.sceneName == "Credits")
+        {
+            StartCoroutine(LoadMenu());
+        }
+    }
+    private void Update()
+    {
+        if (!_started)
+        {
+            if (Input.anyKeyDown)
+            {
+                if (this.sceneName == "Menu")
+                {
+                    MenuUI.SetActive(false);
+                    StartCoroutine(StartDialog());
+                }
+            }
+        }
+        shooterTimeBoss -= Time.deltaTime;
+        if (shooterTimeBoss < 0)
+        {
+            ActiveBossShip();
+        }
+    }
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+    }
+    public void LoadSceneWithDealy()
+    {
+        StartCoroutine(SceneDelay());
     }
     public void RestartScene(string sceneNameRestart)
     {
         SceneManager.LoadSceneAsync(sceneNameRestart, LoadSceneMode.Single);
     }
-    public void IncreaseScore()
-    {
-        shooterScore++;
-        SetText(shooterScore);
-    }
-    public void SetText(int shooterScore)
-    {
-        shooterScore = 60 - shooterScore; //60 as placeholder for max score
-        if (shooterScore < 0)
-        {
-            shooterScore = 0;
-        }
-        uiManager.SetText(shooterScore.ToString());
-    }
+
     public void ActiveBossShip()
     {
-        boss.SetActive(true);
+        if (withBoss)
+        {
+            boss.SetActive(true);
+        }
     }
     public void DeactiveBossShip(Transform pos)
     {
@@ -58,5 +84,20 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.45f);
         exp3.SetActive(false);
 
+    }
+    private IEnumerator StartDialog()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Dialog.SetActive(true);
+    }
+    private IEnumerator SceneDelay()
+    {
+        yield return new WaitForSeconds(2f);
+        LoadScene(sceneName);
+    }
+    private IEnumerator LoadMenu()
+    {
+        yield return new WaitForSeconds(10f);
+        LoadScene("Menu");
     }
 }

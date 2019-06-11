@@ -9,8 +9,12 @@ public class SlimesBehaviour : MonoBehaviour
     private Transform _player;
     private Animator _animator;
     private bool _isDead;
+    private Camera _camera;
+    private AudioSource _audioSource;
     void Awake()
     {
+        _audioSource = GetComponent<AudioSource>();
+        _camera = Camera.main;
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         _animator = GetComponent<Animator>();
     }
@@ -31,7 +35,10 @@ public class SlimesBehaviour : MonoBehaviour
         if (other.CompareTag("Sword"))
         {
             _animator.SetTrigger("isDead");
+            _audioSource.Play();
             _isDead = true;
+            Animator camAnimator = _camera.GetComponent<Animator>();
+            camAnimator.SetTrigger("Shake");
         }
     }
     public void Dead()

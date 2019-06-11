@@ -19,13 +19,21 @@ public class PlayerTopDown : MonoBehaviour
     [SerializeField] private float _knockback;
     private UIManager _uiManager;
     [SerializeField] private int _playerHP;
-
+    public int keyQuantity;
+    public GameObject[] keysInventory;
+    [SerializeField] private float _invencibilityCurrentTime, _invencibilityTime;
+    private GameManager _gameManager;
+    private CapsuleCollider2D _collider2D;
+    private AudioSource _audioSource;
+    public AudioClip doorSound, swordSound, damageSound;
     private void Awake()
     {
+        _gameManager = FindObjectOfType<GameManager>();
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _uiManager = FindObjectOfType<UIManager>().GetComponent<UIManager>();
-
+        _collider2D = GetComponent<CapsuleCollider2D>();
+        _audioSource = GetComponent<AudioSource>();
     }
     private void Start()
     {
@@ -34,6 +42,7 @@ public class PlayerTopDown : MonoBehaviour
 
     private void Update()
     {
+        _invencibilityCurrentTime = _invencibilityCurrentTime - Time.deltaTime;
         _animatorInfo = this._animator.GetCurrentAnimatorClipInfo(0);
         clipName = _animatorInfo[0].clip.name;
         if (isAttacking)
@@ -108,10 +117,6 @@ public class PlayerTopDown : MonoBehaviour
                 Attack();
             }
         }
-        if (isAttacking)
-        {
-
-        }
     }
     private void Attack()
     {
@@ -129,32 +134,95 @@ public class PlayerTopDown : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Damage();
-            if (other.gameObject.transform.position.x < this.transform.position.x)
+            if (_invencibilityCurrentTime <= 0)
             {
-                transform.Translate(Vector2.right * _knockback * Time.deltaTime);
+                Damage();
+                if (other.gameObject.transform.position.x < this.transform.position.x)
+                {
+                    transform.Translate(Vector2.right * _knockback * Time.deltaTime);
 
-            }
-            if (other.gameObject.transform.position.x > this.transform.position.x)
-            {
-                transform.Translate(Vector2.left * _knockback * Time.deltaTime);
+                }
+                if (other.gameObject.transform.position.x > this.transform.position.x)
+                {
+                    transform.Translate(Vector2.left * _knockback * Time.deltaTime);
 
-            }
-            if (other.gameObject.transform.position.y < this.transform.position.y)
-            {
-                transform.Translate(Vector2.up * _knockback * Time.deltaTime);
+                }
+                if (other.gameObject.transform.position.y < this.transform.position.y)
+                {
+                    transform.Translate(Vector2.up * _knockback * Time.deltaTime);
 
-            }
-            if (other.gameObject.transform.position.y > this.transform.position.y)
-            {
-                transform.Translate(Vector2.down * _knockback * Time.deltaTime);
+                }
+                if (other.gameObject.transform.position.y > this.transform.position.y)
+                {
+                    transform.Translate(Vector2.down * _knockback * Time.deltaTime);
 
+                }
             }
         }
     }
     private void Damage()
     {
+        _audioSource.PlayOneShot(damageSound);
         _playerHP--;
+        _invencibilityCurrentTime = _invencibilityTime;
         _uiManager.SetHPSlider(_playerHP);
+        if (_playerHP <= 0)
+        {
+            _animator.SetTrigger("Dead");
+            _collider2D.enabled = false;
+        }
+    }
+    public void Reset()
+    {
+        _gameManager.RestartScene("TopDown");
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (keyQuantity > 0)
+        {
+            if (other.CompareTag("Door"))
+            {
+                keyQuantity--;
+                _audioSource.PlayOneShot(doorSound);
+                other.gameObject.SetActive(false);
+
+                if (this.keyQuantity == 0)
+                {
+                    keysInventory[0].SetActive(false);
+                    keysInventory[1].SetActive(false);
+                    keysInventory[2].SetActive(false);
+                }
+                else if (this.keyQuantity == 1)
+                {
+                    keysInventory[0].SetActive(true);
+                    keysInventory[1].SetActive(false);
+                    keysInventory[2].SetActive(false);
+                }
+                else if (this.keyQuantity == 2)
+                {
+                    keysInventory[0].SetActive(true);
+                    keysInventory[1].SetActive(true);
+                    keysInventory[2].SetActive(false);
+                }
+                else if (this.keyQuantity == 3)
+                {
+                    keysInventory[0].SetActive(true);
+                    keysInventory[1].SetActive(true);
+                    keysInventory[2].SetActive(true);
+                }
+            }
+        }
+        if (other.gameObject.CompareTag("Stair"))
+        {
+            _gameManager.LoadSceneWithDealy();
+            this._speed = 0;
+            SpriteRenderer spriteRenderer = this.GetComponent<SpriteRenderer>();
+            spriteRenderer.enabled = false;
+        }
+    }
+    public void PlayAttackSound()
+    {
+        _audioSource.PlayOneShot(swordSound);
     }
 }

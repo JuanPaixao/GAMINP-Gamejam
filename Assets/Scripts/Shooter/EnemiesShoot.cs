@@ -6,13 +6,23 @@ public class EnemiesShoot : MonoBehaviour
 {
     [SerializeField] private float _shootSpeed;
     private Animator _shootAnimator;
+    private Transform _player;
+    private AudioSource _audioSource;
+
     private void Awake()
     {
+        _player = FindObjectOfType<ShooterPlayer>().GetComponent<Transform>();
         _shootAnimator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
     }
     private void Start()
     {
         StartCoroutine(DestroyMe());
+        float distanceTest = Vector2.Distance(_player.position, this.transform.position);
+        if (distanceTest < 12f)
+        {
+            _audioSource.Play();
+        }
     }
     private void Update()
     {

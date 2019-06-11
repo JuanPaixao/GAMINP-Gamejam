@@ -8,6 +8,11 @@ public class EnemiesBackup : MonoBehaviour
     private Stack<GameObject> _enemiesStack;
     [SerializeField] private int _quantity;
     [SerializeField] private GameObject[] _enemies;
+    private GameManager _gameManager;
+    private void Awake()
+    {
+        _gameManager = FindObjectOfType<GameManager>();
+    }
 
     void Start()
     {
@@ -19,23 +24,16 @@ public class EnemiesBackup : MonoBehaviour
     {
         throw new NotImplementedException();
     }
-
-    void Update()
-    {
-
-    }
     private void CreateAllEnemies()
     {
         for (int i = 0; i < this._quantity; i++)
         {
-            int randomNumber = UnityEngine.Random.Range(0, 4);
+            int randomNumber = UnityEngine.Random.Range(0, 6);
             GameObject enemy = GameObject.Instantiate(_enemies[randomNumber], this.transform);
             EnemiesBackupObject backupEnemy = enemy.GetComponent<EnemiesBackupObject>();
             backupEnemy.SetBackup(this);
             enemy.SetActive(false);
             this._enemiesStack.Push(enemy);
-
-
         }
     }
     public GameObject UnstackEnemy()

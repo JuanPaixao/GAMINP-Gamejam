@@ -19,11 +19,13 @@ public class EnemyGenerator : MonoBehaviour
     }
     private void Instantiate()
     {
-        if (_gameManager.shooterScore <= 60)
+        if (_gameManager.shooterTimeBoss >= 0)
         {
             if (this._enemiesBackup.HasEnemy())
             {
                 GameObject enemy = this._enemiesBackup.UnstackEnemy();
+
+                enemy.GetComponent<EnemiesBehavior>().hitted = false;
                 this.SetEnemyPosition(enemy);
             }
         }

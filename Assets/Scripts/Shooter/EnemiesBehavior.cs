@@ -13,16 +13,21 @@ public class EnemiesBehavior : MonoBehaviour
     [SerializeField] private float _laserCooldown;
     [SerializeField] private GameObject[] destroyRoutine;
     private GameManager _gameManager;
+    public bool hitted;
+    
 
-    void Awake()
+
+    private void Awake()
     {
         _gameManager = FindObjectOfType<GameManager>().GetComponent<GameManager>();
         this._initialPos = this.transform.position;
+
     }
     private void Start()
     {
         if (!this.CompareTag("Upgrade"))
         {
+            hitted = false;
             InvokeRepeating("Shoot", 1f, _laserCooldown);
         }
     }
@@ -38,7 +43,7 @@ public class EnemiesBehavior : MonoBehaviour
         {
             OutOfBounds();
         }
-        if (_gameManager.shooterScore >= 60)
+        if (_gameManager.shooterTimeBoss <= 0)
         {
             if (!this.gameObject.CompareTag("Upgrade"))
             {
@@ -49,11 +54,15 @@ public class EnemiesBehavior : MonoBehaviour
     }
     private void Shoot()
     {
-        if (_gameManager.shooterScore < 60)
+        if (hitted == false)
         {
-            Instantiate(_laser, this.transform.position, Quaternion.identity); //placeholder to memory stack later
+            if (_gameManager.shooterTimeBoss >= 0)
+            {
+                Instantiate(_laser, this.transform.position, Quaternion.identity); //placeholder to memory stack later
+            }
         }
     }
+
     private void SineMovement()
     {
         this._angle += this._speed * Time.deltaTime; //increasing angle by one and using sine on it, so it will make the sine goes between -1 and 1
@@ -72,10 +81,10 @@ public class EnemiesBehavior : MonoBehaviour
     }
     public void DestroyMe()
     {
+        hitted = true;
         destroyRoutine[0].SetActive(false);
         destroyRoutine[1].SetActive(true);
-        _gameManager.IncreaseScore();
-        if (_gameManager.shooterScore < 60)
+        if (_gameManager.shooterTimeBoss > 0)
         {
             StartCoroutine(ReturnRoutine());
         }

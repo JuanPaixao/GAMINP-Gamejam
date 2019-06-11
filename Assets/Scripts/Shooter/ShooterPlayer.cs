@@ -20,7 +20,8 @@ public class ShooterPlayer : MonoBehaviour
     public GameObject explosion;
     [SerializeField] private SpriteRenderer _engineSprite;
     private GameManager _gameManager;
-
+    public AudioClip laser, powerUp;
+    private AudioSource _audioSource;
 
     private void Awake()
     {
@@ -28,6 +29,7 @@ public class ShooterPlayer : MonoBehaviour
         _animator = GetComponent<Animator>();
         _shooterPlayerAnim = GetComponent<ShooterPlayerAnimations>();
         _gameManager = FindObjectOfType<GameManager>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -57,12 +59,14 @@ public class ShooterPlayer : MonoBehaviour
                 if (_upgrade <= 0)
                 {
                     Instantiate(_laser, _cannonsPosition[0].position, Quaternion.identity);
+                    _audioSource.PlayOneShot(laser);
                 }
                 else if (_upgrade == 1)
                 {
                     Instantiate(_laser, _cannonsPosition[0].position, Quaternion.identity);
                     Instantiate(_laser, _cannonsPosition[1].position, Quaternion.identity);
                     Instantiate(_laser, _cannonsPosition[2].position, Quaternion.identity);
+                    _audioSource.PlayOneShot(laser);
 
                 }
                 else if (_upgrade == 2)
@@ -72,6 +76,7 @@ public class ShooterPlayer : MonoBehaviour
                     Instantiate(_laser, _cannonsPosition[2].position, Quaternion.identity);
                     Instantiate(_laser, _cannonsPosition[3].position, Quaternion.identity);
                     Instantiate(_laser, _cannonsPosition[4].position, Quaternion.identity);
+                    _audioSource.PlayOneShot(laser);
 
                 }
                 else
@@ -82,6 +87,7 @@ public class ShooterPlayer : MonoBehaviour
                     Instantiate(_laser, _cannonsPosition[3].position, Quaternion.identity);
                     Instantiate(_laser, _cannonsPosition[4].position, Quaternion.identity);
                     Instantiate(_laser, _cannonsPosition[5].position, Quaternion.identity);
+                    _audioSource.PlayOneShot(laser);
                 }
                 _actualCooldownShoot = _cooldownShoot;
             }
@@ -133,6 +139,7 @@ public class ShooterPlayer : MonoBehaviour
                 _upgrade++;
                 _animator.SetInteger("Upgrade", _upgrade);
                 other.gameObject.GetComponent<EnemiesBehavior>().OutOfBounds();
+                _audioSource.PlayOneShot(powerUp);
             }
             else if (_upgrade >= 3)
             {
@@ -176,7 +183,7 @@ public class ShooterPlayer : MonoBehaviour
     {
         yield return new WaitForSeconds(0.45f);
         this.gameObject.SetActive(false);
-        
+
         _gameManager.RestartScene("Shooter");
     }
 }

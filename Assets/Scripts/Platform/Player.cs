@@ -22,6 +22,11 @@ public class Player : MonoBehaviour
     private GameManager _gameManager;
     private bool _invencible;
     [SerializeField] private ParticleSystem _particle;
+    [SerializeField] private float _knockback;
+    public AudioClip jump;
+    public GameObject musicSourceBoss;
+    private AudioSource _audioSource;
+    public AudioSource stopMusic;
     private void Awake()
     {
         _uiManager = FindObjectOfType<UIManager>().GetComponent<UIManager>();
@@ -29,6 +34,7 @@ public class Player : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _playerAnimator = GetComponent<PlayerAnimations>();
+        _audioSource = GetComponent<AudioSource>();
     }
     private void Start()
     {
@@ -79,6 +85,7 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             _rb.AddForce(Vector2.up * Mathf.Sqrt(_jumpForce * -1 * Physics.gravity.y), ForceMode2D.Impulse);
+            _audioSource.PlayOneShot(jump);
         }
         else if (Input.GetButtonUp("Jump"))
         {
@@ -115,9 +122,39 @@ public class Player : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (_invencibilityCurrentTime <= 0)
         {
-            TakeDamage();
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                TakeDamage();
+
+                if (other.gameObject.CompareTag("Enemy"))
+                {
+                    if (_invencibilityCurrentTime <= 0)
+                    {
+                        if (other.gameObject.transform.position.x < this.transform.position.x)
+                        {
+                            transform.Translate(Vector2.right * _knockback * Time.deltaTime);
+
+                        }
+                        if (other.gameObject.transform.position.x > this.transform.position.x)
+                        {
+                            transform.Translate(Vector2.left * _knockback * Time.deltaTime);
+
+                        }
+                        if (other.gameObject.transform.position.y < this.transform.position.y)
+                        {
+                            transform.Translate(Vector2.up * _knockback * Time.deltaTime);
+
+                        }
+                        if (other.gameObject.transform.position.y > this.transform.position.y)
+                        {
+                            transform.Translate(Vector2.down * _knockback * Time.deltaTime);
+
+                        }
+                    }
+                }
+            }
         }
     }
     private void AnimationCheck()
@@ -139,6 +176,12 @@ public class Player : MonoBehaviour
             isDead = true;
             StartCoroutine(RestartLevel());
         }
+        else if (other.gameObject.name == "ChangeMyMusic")
+        {
+            this.stopMusic.volume =0;
+            musicSourceBoss.SetActive(true);
+            other.gameObject.SetActive(false);
+        }
     }
     private void TakeDamage()
     {
@@ -155,6 +198,7 @@ public class Player : MonoBehaviour
         else
         {
             StartCoroutine(DamageRoutine());
+
         }
     }
     private IEnumerator RestartLevel()

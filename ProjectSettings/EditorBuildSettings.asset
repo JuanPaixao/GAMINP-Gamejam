@@ -6,9 +6,30 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: a7d3cf02cfb1aaf46bf32873b0ef4aee
+  - enabled: 1
     path: Assets/Scenes/Platform.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Shooter.unity
     guid: 2f61d029dba644b40aede0fde5cc921b
+  - enabled: 1
+    path: Assets/Scenes/TopDown.unity
+    guid: f9b4442404923624c91072c4e7c0008b
+  - enabled: 1
+    path: Assets/Scenes/Transition_Platform.unity
+    guid: 445daf9bb50c9594b87895d4a4e39ba2
+  - enabled: 1
+    path: Assets/Scenes/Transition_Shooter.unity
+    guid: 6a2d9853af8dbfb4492b198852696395
+  - enabled: 1
+    path: Assets/Scenes/Transition_TopDown.unity
+    guid: 9b1495c6504e5f049915d112f12a746b
+  - enabled: 0
+    path: Assets/Scenes/Transition_Ending.unity
+    guid: 11f5424adb1b61a40835a1051cf94a6e
+  - enabled: 1
+    path: Assets/Scenes/Transition_Credits.unity
+    guid: 86a72b96e838b4647b476766b166599f
   m_configObjects: {}

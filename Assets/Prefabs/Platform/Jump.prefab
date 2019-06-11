@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2151777919966689315}
   - component: {fileID: 8436533931865968515}
-  - component: {fileID: 1583839834176734015}
+  - component: {fileID: 3015982857439043120}
   m_Layer: 11
   m_Name: Jump
   m_TagString: MushroomJump
@@ -82,8 +82,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &1583839834176734015
-CircleCollider2D:
+--- !u!61 &3015982857439043120
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,9 +95,19 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0053100586, y: -0.04104328}
+  m_Offset: {x: 0.013923645, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5625, y: 0.4375}
+    newSize: {x: 0.5625, y: 0.4375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.25613403
+  m_Size: {x: 0.45508575, y: 0.4375}
+  m_EdgeRadius: 0
 --- !u!1 &7563271415658281946
 GameObject:
   m_ObjectHideFlags: 0

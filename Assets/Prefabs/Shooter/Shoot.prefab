@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485a2ddb14c32ed46ba07cb2d1e97dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shootSpeed: 5
+  _shootSpeed: 10
   _CollisionEvent:
     m_PersistentCalls:
       m_Calls:
@@ -147,4 +147,3 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  gameManager: {fileID: 0}

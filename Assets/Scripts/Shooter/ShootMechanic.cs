@@ -8,12 +8,12 @@ public class ShootMechanic : MonoBehaviour
     [SerializeField] private float _shootSpeed;
     private Animator _shootAnimator;
     [SerializeField] UnityEvent _CollisionEvent;
-
+    private Collider2D _collider;
 
     private void Awake()
     {
         _shootAnimator = GetComponent<Animator>();
-
+        _collider = GetComponent<Collider2D>();
     }
     private void Start()
     {
@@ -26,6 +26,7 @@ public class ShootMechanic : MonoBehaviour
     public void ShootHit()
     {
         _shootAnimator.SetTrigger("isDestroying");
+        Debug.Log("Teste");
     }
     public void Destroy()
     {
@@ -33,10 +34,15 @@ public class ShootMechanic : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+
         if (other.gameObject.CompareTag("Enemy"))
         {
+            EnemiesBehavior enemy = other.GetComponent<EnemiesBehavior>();
             _CollisionEvent.Invoke();
-            other.gameObject.GetComponent<EnemiesBehavior>().DestroyMe();
+            if (enemy != null)
+            {
+                enemy.DestroyMe();
+            }
             this._shootSpeed /= 3;
         }
         else if (other.gameObject.CompareTag("Wall"))

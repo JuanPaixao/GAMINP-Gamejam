@@ -16,6 +16,7 @@ TagManager:
   - Sword
   - Box
   - Stair
+  - Door
   layers:
   - Default
   - TransparentFX
