@@ -855,6 +855,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
         type: 3}
+      propertyPath: sentencesENG.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
       propertyPath: sentencesPT.Array.data[4]
       value: "M\xFAsicas/SFX: Rafael Marques"
       objectReference: {fileID: 0}
@@ -903,46 +908,6 @@ PrefabInstance:
       propertyPath: sentencesPT.Array.data[8]
       value: '                         Obrigado por jogar!'
       objectReference: {fileID: 0}
-    - target: {fileID: 6422568877028793808, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
-        type: 3}
-      propertyPath: m_text
-      value: "Programador: Juan Paixao\n..................................................................\nArtistas2D:
-        Amanda Custodio / Rafael Marques\n..................................................................\nArtistas3D:
-        Wagner Pinto\n..................................................................\nM\xFAsicas/SFX:
-        Rafael Marques \n..................................................................\nGame
-        Designer/Roteirista: Wellington Moraes\n..................................................................\n\t\tObrigado
-        por jogar!"
-      objectReference: {fileID: 0}
-    - target: {fileID: 6422568877028793808, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 524
-      objectReference: {fileID: 0}
-    - target: {fileID: 6422568877028793808, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 23
-      objectReference: {fileID: 0}
-    - target: {fileID: 6422568877028793808, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 6422568877028793808, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6422568877028793808, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 29
-      objectReference: {fileID: 0}
-    - target: {fileID: 6422568877028793808, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
-        type: 3}
-      propertyPath: m_firstOverflowCharacterIndex
-      value: 503
-      objectReference: {fileID: 0}
     - target: {fileID: 6422568877477150104, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -987,6 +952,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877028793808, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: m_text
+      value: "Programador: Juan Paixao\n..................................................................\nArtistas2D:
+        Amanda Custodio / Rafael Marques\n..................................................................\nArtistas3D:
+        Wagner Pinto\n..................................................................\nM\xFAsicas/SFX:
+        Rafael Marques \n..................................................................\nGame
+        Designer/Roteirista: Wellington Moraes\n..................................................................\n\t\tObrigado
+        por jogar!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877028793808, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 524
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877028793808, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877028793808, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877028793808, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877028793808, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877028793808, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: 503
       objectReference: {fileID: 0}
     - target: {fileID: 6422568878176411561, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
         type: 3}

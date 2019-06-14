@@ -763,6 +763,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
         type: 3}
+      propertyPath: sentencesENG.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
       propertyPath: sentencesPT.Array.data[4]
       value: "BOB: O que? Nossa alegria e divers\xE3o na \xE9poca e a nostalgia de
         agora?"
@@ -822,6 +827,81 @@ PrefabInstance:
       propertyPath: sceneToLoad
       value: Transition_Credits
       objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[0]
+      value: 'MIKE: The Myth of Zink was incredible! It induced you to use your head.
+        I remember the invisible maze that I hated!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[1]
+      value: 'MIKE: There was a bunch of slimes, you had to take care not to die.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[2]
+      value: 'MIKE: It also had the teleports... I miss those days'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[3]
+      value: 'ROBERT: You know, we have different tastes but we share something in
+        common.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[4]
+      value: 'BOB: What? Our happiness and joy back in the day and the nostalgia that
+        brings us nowadays?'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[5]
+      value: 'ROBERT: No! Well, that too. It''s that we all agree that the actual
+        era of video games sucks!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[6]
+      value: 'MIKE: Yeah, that''s true!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[7]
+      value: 'BOB: Agreed! Our caretaker installed the Super Mega System on the TV,
+        let''s play it!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[8]
+      value: 'MIKE: Let''s do it!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[9]
+      value: 'ROBERT: Yeaah!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877477150104, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 18.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877477150104, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -81.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877477150104, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 672.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877477150104, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 157.9
+      objectReference: {fileID: 0}
     - target: {fileID: 6422568877028793808, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
         type: 3}
       propertyPath: m_text
@@ -851,26 +931,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.spaceCount
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6422568877477150104, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 18.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6422568877477150104, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -81.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6422568877477150104, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 672.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6422568877477150104, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 157.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b80d4e9fabe7bf24f9106d9afea0cdf3, type: 3}

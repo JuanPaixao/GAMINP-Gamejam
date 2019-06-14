@@ -199,6 +199,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
         type: 3}
+      propertyPath: sentencesENG.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
       propertyPath: sentencesPT.Array.data[0]
       value: 'BOB: O quanto tinha que desviar, olhar sua nave ficar maior e mais forte,
         o quanto de balas o boss atirava.'
@@ -223,6 +228,47 @@ PrefabInstance:
       propertyPath: sentencesPT.Array.data[3]
       value: "MIKE: Serio? Voc\xEA reclama do ROBERT que era s\xF3 pulo e seu jogo
         \xE9 s\xF3 tiro... O meu tinha mais coisas"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[0]
+      value: 'BOB: Dodging the shots, seeing your spaceship getting bigger and stronger..!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[1]
+      value: 'BOB: With that giant boss it was all incredible. And the song was frenetic!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[2]
+      value: 'BOB: Aaaah, good times...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[3]
+      value: 'MIKE: Really? You complained about ROBERT just jumping and yours is
+        just shooting! Mine had more...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877477150104, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 18.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877477150104, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -81.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877477150104, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 672.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877477150104, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 157.9
       objectReference: {fileID: 0}
     - target: {fileID: 6422568877028793808, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
         type: 3}
@@ -253,26 +299,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.spaceCount
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6422568877477150104, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 18.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6422568877477150104, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -81.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6422568877477150104, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 672.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6422568877477150104, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 157.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b80d4e9fabe7bf24f9106d9afea0cdf3, type: 3}

@@ -300,18 +300,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 60c35dcb6c56aad4d8285eb1e30f2f83, type: 3}
-    m_FontSize: 20
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 83
+    m_MaxSize: 91
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '- Aperte qualquer tecla para jogar - '
+  m_Text: '- Start - '
 --- !u!222 &985458464
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1143,6 +1143,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
         type: 3}
+      propertyPath: sentencesENG.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
       propertyPath: sentencesPT.Array.data[11]
       value: "ROBERT: Eu adorava jogar Super Mary. Os gr\xE1ficos eram lindos e muito
         bem feitos, parecia real na \xE9poca."
@@ -1168,6 +1173,75 @@ PrefabInstance:
         type: 3}
       propertyPath: sentencesPT.Array.data[2]
       value: "ROBERT: E \xE9 bom?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[0]
+      value: 'MIKE: What games this retirement home have?'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[1]
+      value: 'BOB: Our caretaker said that is a modern game, kind of a chess battle
+        royale. It''s called Chess Royale.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[2]
+      value: 'ROBERT: And is it any good??'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[3]
+      value: 'BOB: Don''t know, let''s see this thing. It can''t be that hard.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[4]
+      value: '.....'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[5]
+      value: 'MIKE: Why do I have to choose a piece to play? Chess isn''t like that!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[6]
+      value: 'ROBERT: I''ll be the horse, I will be able to jump through places but...
+        I JUMP IN L WITH THIS CAMERA?!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[7]
+      value: 'BOB: I''m the bishop... Wait, it doesn''t make any sense a third person
+        game always walking diagonally!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[8]
+      value: 'MIKE: What a crappy game, it doesn''t make any sense at all!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[9]
+      value: 'BOB: And everything we do is for nothing, killing pieces to reach nowhere,
+        you don''t even level up.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[10]
+      value: 'ROBERT: I miss my childhood, where the games made sense.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[11]
+      value: 'ROBERT: When I was a child, I loved playing Super Mary. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[12]
+      value: 'ROBERT: The graphics were beautiful and really well made...'
       objectReference: {fileID: 0}
     - target: {fileID: 6422568877477150104, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
         type: 3}

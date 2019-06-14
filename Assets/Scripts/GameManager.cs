@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private bool _started;
     public bool withBoss;
     private AudioSource _audioSource;
+    public static string language;
 
     private void Start()
     {
@@ -22,6 +23,10 @@ public class GameManager : MonoBehaviour
         if (this.sceneName == "Credits")
         {
             StartCoroutine(LoadMenu());
+        }
+        if (this.sceneName == "LanguageSelection")
+        {
+            language = null;
         }
     }
     private void Update()
@@ -99,5 +104,14 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(10f);
         LoadScene("Menu");
+    }
+    public void SetLanguage(string setLang)
+    {
+        language = setLang;
+        LoadScene("Menu");
+    }
+    public string GetLanguage()
+    {
+        return language;
     }
 }

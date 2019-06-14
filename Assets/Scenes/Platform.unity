@@ -17315,6 +17315,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8436533931865968515, guid: 30bb187d5226cf1468d50053f382bb5f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1583839834176734015, guid: 30bb187d5226cf1468d50053f382bb5f,
         type: 3}
       propertyPath: m_Offset.y
@@ -17324,11 +17329,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 0.27542877
-      objectReference: {fileID: 0}
-    - target: {fileID: 8436533931865968515, guid: 30bb187d5226cf1468d50053f382bb5f,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30bb187d5226cf1468d50053f382bb5f, type: 3}
@@ -24403,7 +24403,7 @@ Tilemap:
     second:
       m_TileIndex: 10
       m_TileSpriteIndex: 10
-      m_TileMatrixIndex: 9
+      m_TileMatrixIndex: 10
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
@@ -24412,7 +24412,7 @@ Tilemap:
     second:
       m_TileIndex: 10
       m_TileSpriteIndex: 10
-      m_TileMatrixIndex: 9
+      m_TileMatrixIndex: 10
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
@@ -24421,7 +24421,7 @@ Tilemap:
     second:
       m_TileIndex: 10
       m_TileSpriteIndex: 10
-      m_TileMatrixIndex: 9
+      m_TileMatrixIndex: 10
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
@@ -24430,7 +24430,7 @@ Tilemap:
     second:
       m_TileIndex: 10
       m_TileSpriteIndex: 10
-      m_TileMatrixIndex: 9
+      m_TileMatrixIndex: 10
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
@@ -24860,6 +24860,24 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
+  - m_RefCount: 0
+    m_Data:
+      e00: 1.3125679e+36
+      e01: NaN
+      e02: 0
+      e03: 1.3125666e+36
+      e10: 2.26e-43
+      e11: NaN
+      e12: 7.34684e-40
+      e13: 2.26e-43
+      e20: 5.2557e-41
+      e21: 2.2e-44
+      e22: -1.0180148e-22
+      e23: 0
+      e30: 0
+      e31: NaN
+      e32: 4.5905e-41
+      e33: 0
   - m_RefCount: 4
     m_Data:
       e00: 1
@@ -24869,7 +24887,7 @@ Tilemap:
       e10: 0
       e11: 1
       e12: 0
-      e13: 0.4
+      e13: 0.125
       e20: 0
       e21: 0
       e22: 1
@@ -32661,7 +32679,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0029144287, y: 0.58993053}
+  m_Offset: {x: 0.0029144287, y: 0.66656375}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -32672,7 +32690,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7367401, y: 0.8734236}
+  m_Size: {x: 1.8162079, y: 1.02669}
   m_EdgeRadius: 0
 --- !u!1 &2073776487
 GameObject:
@@ -33668,15 +33686,50 @@ PrefabInstance:
       propertyPath: stopMusic
       value: 
       objectReference: {fileID: 55386259901300137}
+    - target: {fileID: 55386261617548371, guid: 9ef2c5b6873d65d4b9bf4da744842b1c,
+        type: 3}
+      propertyPath: _jumpForce
+      value: 4.75
+      objectReference: {fileID: 0}
     - target: {fileID: 55386261617548374, guid: 9ef2c5b6873d65d4b9bf4da744842b1c,
         type: 3}
       propertyPath: m_Offset.y
-      value: -0.019439936
+      value: -0.030655026
       objectReference: {fileID: 0}
     - target: {fileID: 55386261617548374, guid: 9ef2c5b6873d65d4b9bf4da744842b1c,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.99443054
+      value: 1.0168607
+      objectReference: {fileID: 0}
+    - target: {fileID: 55386261617548374, guid: 9ef2c5b6873d65d4b9bf4da744842b1c,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0016863942
+      objectReference: {fileID: 0}
+    - target: {fileID: 55386261617548374, guid: 9ef2c5b6873d65d4b9bf4da744842b1c,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.49900258
+      objectReference: {fileID: 0}
+    - target: {fileID: 55386261617548373, guid: 9ef2c5b6873d65d4b9bf4da744842b1c,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0029121249
+      objectReference: {fileID: 0}
+    - target: {fileID: 55386261617548373, guid: 9ef2c5b6873d65d4b9bf4da744842b1c,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.47839043
+      objectReference: {fileID: 0}
+    - target: {fileID: 55386261617548373, guid: 9ef2c5b6873d65d4b9bf4da744842b1c,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.45341948
+      objectReference: {fileID: 0}
+    - target: {fileID: 55386261617548373, guid: 9ef2c5b6873d65d4b9bf4da744842b1c,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.27616903
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ef2c5b6873d65d4b9bf4da744842b1c, type: 3}

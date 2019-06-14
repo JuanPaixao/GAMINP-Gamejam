@@ -487,6 +487,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
         type: 3}
+      propertyPath: sentencesENG.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
       propertyPath: sentencesPT.Array.data[0]
       value: 'ROBERT: Lembro da linda floresta que o jogo tinha...'
       objectReference: {fileID: 0}
@@ -518,6 +523,35 @@ PrefabInstance:
       propertyPath: sentencesPT.Array.data[4]
       value: "BOB: S\xE9rio? O jogo \xE9 s\xF3 de pular, nem tem desafio algum! Agora
         JOGO BOM mesmo era Galatic Invaders."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[0]
+      value: 'ROBERT: What a pretty forest it had...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[1]
+      value: 'ROBERT: I loved stomping the Vrenjins, they were green and reminded
+        of the letter V.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[2]
+      value: 'ROBERT: The clouds were so real that they even looked alive. Look at
+        that!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[3]
+      value: 'ROBERT: And the emotion reaches its peak with the boss, it was so exciting
+        to stomp that big mushroom.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422568877147150673, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
+        type: 3}
+      propertyPath: sentencesENG.Array.data[4]
+      value: 'BOB: Really? All you do is jump, there is no challenge! Now Galactic
+        Invaders was a GOOD GAME!'
       objectReference: {fileID: 0}
     - target: {fileID: 6422568877477150104, guid: b80d4e9fabe7bf24f9106d9afea0cdf3,
         type: 3}
